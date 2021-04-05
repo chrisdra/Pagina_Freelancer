@@ -6,7 +6,7 @@
     --gris: #757575;
     --grisclaro: #dfe9f3;
 }
-html{
+html {
     font-size: 62.5%; /*utilizar siempre*/
     box-sizing: border-box;
 }
@@ -47,6 +47,21 @@ h1,h2,h3 {
     font-size: 2rem;
 }
 
+/** Utilidades **/
+.w-sm-100 {
+    width: 100%;
+}
+@media (min-width: 768px) {
+    .w-sm-100 {
+        width: auto;
+    }
+}
+.flex {
+    display: flex;
+}
+.alinear-derecha {
+    justify-content: flex-end;
+}
 .contenedor {
     max-width: 120rem;
     margin: 0 auto;
@@ -64,12 +79,16 @@ h1,h2,h3 {
     border-radius: .5rem; /*redondea el borde del boton*/
     width: 90%; /*esto permita aumentar el tamaño del boton*/
     text-align: center; /*coloca el texto al centro*/
+    border: none;
 }
 /*se creara un @media que permitira modificar el boton en pantallas superiores a 480 pixeles se vea como corresponde*/
-@media (min-width: 480px) {
+@media (min-width: 768px) {
     .boton {
         width: auto;
     }
+}
+.boton:hover {
+    cursor: pointer;
 }
 
 .nav-bg {
@@ -127,8 +146,91 @@ h1,h2,h3 {
 .contenido-hero p {
     color: var(--blanco);
 }
-.ubicacion {
+.contenido-hero .ubicacion {
     display: flex;
     align-items: flex-end;
 }
 
+/** Servicios **/
+@media (min-width: 768px) {
+    .servicios {
+        display: grid; /*con esto se permite crear columnas para crear mejor visualizacion*/
+        grid-template-columns: 1fr 1fr 1fr; /*con esto indica el ancho de 3 columnas dividido en fracciones (1fr = 33.3%)*/
+        column-gap: 10px;/*esto le da un margen de separacion entre las columnas*/
+        /*
+        grid-template-columns: 300px 300px; //se indican que las columnas seran de 300px
+        grid-template-rows: 200px 800px;
+        grid: 200px 800px / 300px 300px; //esto junta las columnas / rows para un codigo mas delgado
+        */
+    }
+}
+
+/** Seccion de los iconos **/
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.servicio h3 {
+    color: var(--secundario);
+    font-weight: normal;
+}
+.servicio p {
+    line-height: 2;
+    text-align: center;
+}
+.servicio .iconos {
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/**Contacto**/
+.formulario {
+    background-color: var(--gris);
+    width: min( 60rem, 100%); /*esto utilizara el valor mas pequeño*/
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+.formulario fieldset {
+    border: none; /*esto permite eliminar el borde del formulario*/
+}
+.formulario legend  {
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--primario);
+}
+.contenedor-campos {
+
+}
+.campo {
+    margin-bottom: 1rem;
+}
+.campo label {
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+.input-text {
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+}
+
+.enviar .boton {
+    width: 100%;
+}
+
+footer {
+    text-align: center;
+}
