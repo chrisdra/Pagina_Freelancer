@@ -16,3 +16,6 @@ Se trabaja en el estilo de los botones "Contactar" dando diseño y color
 -Se modifica el sombreado de "Mis Servicios" con CSS
 -Se trabaja con Grid en "Mis Servicios"
 -Se termina la seccion de "Mis Servicios"
+(06-02-2023)
+-Se comienza CSS de formulario
+-CSS para los inputs  del formulario
