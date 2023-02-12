@@ -10,6 +10,7 @@
 html {
     font-size: 62.5%; /*utilizar siempre*/
     box-sizing: border-box;
+    scroll-snap-type: y mandatory; /* permite deslizar de manera mas inmediata*/
 }
 *, *:before, *:after{
     box-sizing: inherit;
@@ -123,18 +124,19 @@ h1,h2,h3 {
     color: var(--oscuro);
 }
 
+/*  Hero  */
 .hero {
-    background-image: url(../img/hero.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url(../img/hero.jpg); /*agrega imagen de manera css*/
+    background-repeat: no-repeat; /*permite no repetir la imagen cuando se expande*/
+    background-size: cover; /*permite que la imagen se adapte al tamaño de pagina*/
     height: 450px;
-    position: relative;
+    position: relative; /*colocar posicion relativa a padre*/
     margin-bottom: 2rem; /*permite tener una separacion de la imagen hacia abajo*/
 }
 .contenido-hero {
-    position: absolute;
-    background-color: rgb(0 0 0 / 70%); /*esto define la transparencia de la imagen*/
-    width: 100%;
+    position: absolute; /*y al hijo colocar absoluta*/
+    background-color: rgb(0 0 0 / 70%); /*Esto permite colocar color y transparencia a una imagen o sector*/
+    width: 100%; /*permite abarcar el cuadro negro dentro de todo el parametro*/
     height: 100%;
 
     /*esto permite alinear el texto al centro de la imagen*/
@@ -152,17 +154,30 @@ h1,h2,h3 {
     align-items: flex-end;
 }
 
+/** Scroll snap **/
+.servicios, .navegacion-principal, .formulario {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
 /** Servicios **/
 @media (min-width: 768px) {
     .servicios {
         display: grid; /*con esto se permite crear columnas para crear mejor visualizacion*/
-        grid-template-columns: 1fr 1fr 1fr; /*con esto indica el ancho de 3 columnas dividido en fracciones (1fr = 33.3%)*/
-        column-gap: 10px;/*esto le da un margen de separacion entre las columnas*/
-        /*
-        grid-template-columns: 300px 300px; //se indican que las columnas seran de 300px
-        grid-template-rows: 200px 800px;
-        grid: 200px 800px / 300px 300px; //esto junta las columnas / rows para un codigo mas delgado
+        grid-template-columns: repeat(3, 1fr); /*divide el cuadro en 3 fracciones por igual*/
+        
+        /* Estas lineas de grid realizan la misma funcion de separacion que la de arriba
+        (ej1)
+            grid-template-columns: 300px 300px 300px;
+            grid-template-rows: 200px 800px;
+        (ej2)
+            grid: 200px 800px / 300px 300px; esto junta las columnas / rows para un codigo mas delgado
+        (ej3)
+            grid-template-column: 33.3% 33.3% 33.3%;
+        (ej4)
+            grid-template-column: 1fr 1fr 1fr; con esto indica el ancho de 3 columnas dividido en fracciones (1fr = 33.3%)
         */
+        column-gap: 1rem; /*esto le da un margen de separacion entre las columnas*/
     }
 }
 
@@ -190,7 +205,7 @@ h1,h2,h3 {
     align-items: center;
 }
 
-/**Contacto**/
+/**Contacto Formulario**/
 .formulario {
     background-color: var(--gris);
     width: min( 60rem, 100%); /*esto utilizara el valor mas pequeño*/
@@ -213,12 +228,13 @@ h1,h2,h3 {
 @media (min-width: 768px) {
     .contenedor-campos {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
         grid-template-rows: auto auto 20rem;
         column-gap: 1rem;
     }
 
     /*esta linea permite seleccionar un label en especifico para poder realizar una funcion en especial*/
+    /*permite que el contenido se coloque donde corresponde*/
     .campo:nth-child(3) { 
         grid-column: 1 / 3;
     }
@@ -250,6 +266,7 @@ h1,h2,h3 {
     width: 100%;
 }
 
+/** Footer texto final **/
 .footer {
     text-align: center;
 }
